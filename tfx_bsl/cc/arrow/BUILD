@@ -52,7 +52,7 @@ cc_library(
 cc_library(
     name = "sql_util_submodule",
     srcs = select({
-        "@bazel_tools//src/conditions:windows": [
+        "@bazel_tools//src/conditions:darwin_arm64": [
             "sql_util_submodule_windows.cc",
         ],
         "//conditions:default": ["sql_util_submodule.cc"],
@@ -63,7 +63,7 @@ cc_library(
     ],
     features = ["-use_header_modules"],
     deps = select({
-        "@bazel_tools//src/conditions:windows": [],
+        "@bazel_tools//src/conditions:darwin_arm64": [],
         "//conditions:default": [":sql_util"],
     }) + [
         "//tfx_bsl/cc/pybind11:arrow_casters",
