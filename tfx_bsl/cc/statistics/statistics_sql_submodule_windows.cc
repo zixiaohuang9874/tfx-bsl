@@ -41,7 +41,7 @@ void DefineEvaluatePredicate(py::module m) {
          const std::string& test_feature_stats_serialized,
          const std::string& query) {
         throw std::runtime_error(
-            "SQL functionality is not supported on Windows.");
+            "SQL functionality is not supported with this build.");
         return false;
       },
       py::doc("Evaluates a SQL predicate over a pair of FeatureNameStatistics "
