@@ -46,7 +46,7 @@ cc_library(
 cc_library(
     name = "sql_util",
     srcs = select({
-        "@bazel_tools//src/conditions:windows": [
+        "@bazel_tools//src/conditions:darwin_arm64": [
             "sql_util_windows.cc",
         ],
         "//conditions:default": ["sql_util.cc"],
@@ -56,7 +56,7 @@ cc_library(
         "//visibility:public",
     ],
     deps = select({
-        "@bazel_tools//src/conditions:windows": [],
+        "@bazel_tools//src/conditions:darwin_arm64": [],
         "//conditions:default": [
             "@com_google_zetasql//zetasql/public:analyzer_options",
             "@com_google_zetasql//zetasql/public:evaluator",
@@ -72,7 +72,7 @@ cc_library(
 cc_library(
     name = "statistics_sql_submodule",
     srcs = select({
-        "@bazel_tools//src/conditions:windows": [
+        "@bazel_tools//src/conditions:darwin_arm64": [
             "statistics_sql_submodule_windows.cc",
         ],
         "//conditions:default": ["statistics_sql_submodule.cc"],
@@ -86,7 +86,7 @@ cc_library(
         "//tfx_bsl/cc:__pkg__",
     ],
     deps = select({
-        "@bazel_tools//src/conditions:windows": [],
+        "@bazel_tools//src/conditions:darwin_arm64": [],
         "//conditions:default": [":sql_util"],
     }) + [
         "@com_github_tensorflow_metadata//tensorflow_metadata/proto/v0:cc_metadata_v0_proto_cc",
