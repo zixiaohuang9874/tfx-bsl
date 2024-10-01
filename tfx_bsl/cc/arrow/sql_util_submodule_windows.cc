@@ -28,14 +28,14 @@ class RecordBatchSQLSliceQuery {};
 // b/191377114.
 void DefineSqlUtilSubmodule(py::module arrow_module) {
   auto m = arrow_module.def_submodule("sql_util");
-  m.doc() = "Arrow Table SQL utilities is not supported on Windows.";
-
+  m.doc() = "Arrow Table SQL utilities is not supported with this build.";
+  
   py::class_<RecordBatchSQLSliceQuery>(m, "RecordBatchSQLSliceQuery")
       .def(py::init([](const std::string& sql,
                        std::shared_ptr<arrow::Schema> arrow_schema) {
              std::unique_ptr<RecordBatchSQLSliceQuery> result;
              throw std::runtime_error(
-                 "RecordBatchSQLSliceQuery is not supported on Windows.");
+                 "RecordBatchSQLSliceQuery is not supported with this build.");
              return result;
            }),
            py::arg("sql"), py::arg("arrow_schema"));
