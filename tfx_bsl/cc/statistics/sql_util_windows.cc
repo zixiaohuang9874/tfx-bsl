@@ -22,7 +22,7 @@ absl::StatusOr<bool> EvaluatePredicate(
     const tensorflow::metadata::v0::FeatureNameStatistics& feature_statistics,
     const std::string& query) {
   return absl::UnimplementedError(
-      "EvaluatePredicate not supported on Windows.");
+      "EvaluatePredicate not supported with this build.");
 }
 
 // No-op version of EvaluatePredicate for Windows.
@@ -33,7 +33,7 @@ absl::StatusOr<bool> EvaluatePredicate(
         feature_statistics_test,
     const std::string& query) {
   return absl::UnimplementedError(
-      "EvaluatePredicate not supported on Windows.");
+      "EvaluatePredicate not supported with this build.");
 }
 
 }  // namespace statistics
